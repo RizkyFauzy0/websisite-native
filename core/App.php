@@ -52,11 +52,14 @@ class App {
         // Instantiate controller
         $this->controller = new $this->controller;
         
+        // Re-index array after unset operations
+        $url = array_values($url);
+        
         // Check for method
-        if (isset($url[1]) && !empty($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
-                unset($url[1]);
+        if (isset($url[0]) && !empty($url[0])) {
+            if (method_exists($this->controller, $url[0])) {
+                $this->method = $url[0];
+                unset($url[0]);
             }
         }
         

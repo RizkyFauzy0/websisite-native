@@ -57,7 +57,7 @@
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <button onclick='openEditModal(<?= json_encode($slider) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
+                            <button onclick='openEditModal(<?= htmlspecialchars(json_encode($slider), ENT_QUOTES) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDelete(<?= $slider->id ?>, '<?= htmlspecialchars($slider->judul) ?>', '<?= BASE_URL ?>/admin/slider/delete/<?= $slider->id ?>')" class="text-red-600 hover:text-red-900">

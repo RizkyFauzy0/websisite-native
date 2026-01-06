@@ -8,7 +8,7 @@
 <button onclick="openModal('createModal')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"><i class="fas fa-plus"></i>Tambah Data</button></div>
 <div class="bg-white rounded-xl shadow-md p-6"><p class="text-gray-600">Modul Data Guru siap digunakan. Silakan tambah data melalui tombol di atas.</p>
 <?php if(!empty($guru_list)): ?><div class="mt-4"><table class="w-full"><tbody><?php foreach($guru_list as $index => $item): ?><tr class="border-b"><td class="py-2"><?= $index + 1 ?></td><td class="py-2">
-<button onclick='editData(<?= json_encode($item) ?>)' class="text-blue-600 mr-3"><i class="fas fa-edit"></i></button>
+<button onclick='editData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES) ?>)' class="text-blue-600 mr-3"><i class="fas fa-edit"></i></button>
 <button onclick="deleteData(<?= $item->id ?>, '<?= BASE_URL ?>/admin/guru/delete/<?= $item->id ?>')" class="text-red-600"><i class="fas fa-trash"></i></button></td></tr><?php endforeach; ?></tbody></table></div><?php endif; ?>
 </div>
 <div id="createModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden z-50 flex items-center justify-center"><div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4">

@@ -40,7 +40,7 @@
                         <td class="px-6 py-4 text-sm"><?= htmlspecialchars($user->nama_lengkap) ?></td>
                         <td class="px-6 py-4 text-sm"><?= htmlspecialchars($user->email) ?></td>
                         <td class="px-6 py-4 text-sm">
-                            <button onclick='openEditModal(<?= json_encode($user) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
+                            <button onclick='openEditModal(<?= htmlspecialchars(json_encode($user), ENT_QUOTES) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <?php if($user->id != $_SESSION['admin_id']): ?>

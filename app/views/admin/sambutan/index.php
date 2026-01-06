@@ -53,7 +53,7 @@
                         <td class="px-6 py-4 text-sm text-gray-600"><?= htmlspecialchars($sambutan->jabatan) ?></td>
                         <td class="px-6 py-4 text-sm text-gray-600"><?= htmlspecialchars(substr(strip_tags($sambutan->isi_sambutan), 0, 100)) ?>...</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <button onclick='openEditModal(<?= json_encode($sambutan) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
+                            <button onclick='openEditModal(<?= htmlspecialchars(json_encode($sambutan), ENT_QUOTES) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDelete(<?= $sambutan->id ?>, '<?= htmlspecialchars($sambutan->nama_kepsek) ?>', '<?= BASE_URL ?>/admin/sambutan/delete/<?= $sambutan->id ?>')" class="text-red-600 hover:text-red-900">

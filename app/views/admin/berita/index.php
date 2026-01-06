@@ -54,7 +54,7 @@
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm">
-                            <button onclick='openEditModal(<?= json_encode($berita) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
+                            <button onclick='openEditModal(<?= htmlspecialchars(json_encode($berita), ENT_QUOTES) ?>)' class="text-blue-600 hover:text-blue-900 mr-3">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDelete(<?= $berita->id ?>, '<?= htmlspecialchars(addslashes($berita->judul)) ?>', '<?= BASE_URL ?>/admin/berita/delete/<?= $berita->id ?>')" class="text-red-600 hover:text-red-900">

@@ -12,7 +12,7 @@
 <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm"><?= $index + 1 ?></td><td class="px-6 py-4 text-sm"><?= htmlspecialchars($item->judul) ?></td>
 <td class="px-6 py-4 text-sm"><?= date('d/m/Y', strtotime($item->tanggal_mulai)) ?></td>
 <td class="px-6 py-4"><span class="px-2 py-1 text-xs rounded-full <?= $item->status == 'aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' ?>"><?= ucfirst($item->status) ?></span></td>
-<td class="px-6 py-4 text-sm"><button onclick='openEditModal(<?= json_encode($item) ?>)' class="text-blue-600 mr-3"><i class="fas fa-edit"></i></button>
+<td class="px-6 py-4 text-sm"><button onclick='openEditModal(<?= htmlspecialchars(json_encode($item), ENT_QUOTES) ?>)' class="text-blue-600 mr-3"><i class="fas fa-edit"></i></button>
 <button onclick="confirmDelete(<?= $item->id ?>, '<?= htmlspecialchars(addslashes($item->judul)) ?>', '<?= BASE_URL ?>/admin/pengumuman/delete/<?= $item->id ?>')" class="text-red-600"><i class="fas fa-trash"></i></button></td></tr>
 <?php endforeach; else: ?><tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">Belum ada data</td></tr><?php endif; ?></tbody></table></div></div>
 <div id="createModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden z-50 flex items-center justify-center"><div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
