@@ -14,6 +14,9 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/admin.css">
+    
     <style>
         [x-cloak] { display: none !important; }
     </style>
@@ -66,21 +69,10 @@
                 <span>Data Guru</span>
             </a>
             
-            <div x-data="{ open: false }">
-                <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-700 transition">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-building"></i>
-                        <span>Profil Sekolah</span>
-                    </div>
-                    <i class="fas fa-chevron-down text-sm" :class="open ? 'rotate-180' : ''"></i>
-                </button>
-                <div x-show="open" x-cloak class="ml-8 mt-2 space-y-2">
-                    <a href="<?= BASE_URL ?>/admin/profil/visi-misi" class="block px-4 py-2 rounded hover:bg-gray-700">Visi Misi</a>
-                    <a href="<?= BASE_URL ?>/admin/profil/sejarah" class="block px-4 py-2 rounded hover:bg-gray-700">Sejarah</a>
-                    <a href="<?= BASE_URL ?>/admin/profil/struktur-organisasi" class="block px-4 py-2 rounded hover:bg-gray-700">Struktur Organisasi</a>
-                    <a href="<?= BASE_URL ?>/admin/profil/keunggulan" class="block px-4 py-2 rounded hover:bg-gray-700">Keunggulan</a>
-                </div>
-            </div>
+            <a href="<?= BASE_URL ?>/admin/profil" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition <?= isset($active_menu) && $active_menu == 'profil' ? 'bg-gray-700' : '' ?>">
+                <i class="fas fa-building"></i>
+                <span>Profil Sekolah</span>
+            </a>
             
             <div x-data="{ open: false }">
                 <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-700 transition">
@@ -96,20 +88,10 @@
                 </div>
             </div>
             
-            <div x-data="{ open: false }">
-                <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-700 transition">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-trophy"></i>
-                        <span>Prestasi</span>
-                    </div>
-                    <i class="fas fa-chevron-down text-sm" :class="open ? 'rotate-180' : ''"></i>
-                </button>
-                <div x-show="open" x-cloak class="ml-8 mt-2 space-y-2">
-                    <a href="<?= BASE_URL ?>/admin/prestasi-siswa" class="block px-4 py-2 rounded hover:bg-gray-700">Prestasi Siswa</a>
-                    <a href="<?= BASE_URL ?>/admin/prestasi-guru" class="block px-4 py-2 rounded hover:bg-gray-700">Prestasi Guru</a>
-                    <a href="<?= BASE_URL ?>/admin/prestasi-sekolah" class="block px-4 py-2 rounded hover:bg-gray-700">Prestasi Sekolah</a>
-                </div>
-            </div>
+            <a href="<?= BASE_URL ?>/admin/prestasi" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition <?= isset($active_menu) && $active_menu == 'prestasi' ? 'bg-gray-700' : '' ?>">
+                <i class="fas fa-trophy"></i>
+                <span>Prestasi</span>
+            </a>
             
             <a href="<?= BASE_URL ?>/admin/download" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition <?= isset($active_menu) && $active_menu == 'download' ? 'bg-gray-700' : '' ?>">
                 <i class="fas fa-download"></i>
@@ -129,6 +111,11 @@
             <a href="<?= BASE_URL ?>/admin/setting" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition <?= isset($active_menu) && $active_menu == 'setting' ? 'bg-gray-700' : '' ?>">
                 <i class="fas fa-cog"></i>
                 <span>Setting</span>
+            </a>
+            
+            <a href="<?= BASE_URL ?>/admin/user" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition <?= isset($active_menu) && $active_menu == 'user' ? 'bg-gray-700' : '' ?>">
+                <i class="fas fa-users-cog"></i>
+                <span>Manajemen User</span>
             </a>
         </nav>
     </aside>
