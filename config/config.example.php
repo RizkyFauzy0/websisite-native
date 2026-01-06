@@ -1,6 +1,6 @@
 <?php
 
-// Database parameters
+// Database parameters - COPY THIS FILE TO config.php AND CONFIGURE
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');

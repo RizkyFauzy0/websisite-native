@@ -16,7 +16,7 @@ CREATE TABLE users (
 
 -- Insert default admin (password: admin123)
 INSERT INTO users (username, password, nama_lengkap, email) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator', 'admin@sekolah.com');
+('admin', '$2y$10$/8WEyPJgEGjpxeM.Tgw4vejR6WCS/b4bSEWBT1eS1FA45XF31w742', 'Administrator', 'admin@sekolah.com');
 
 -- Table: settings (School settings)
 CREATE TABLE settings (
