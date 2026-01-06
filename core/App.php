@@ -13,9 +13,11 @@ class App {
             // Check for admin prefix
             if ($url[0] === 'admin') {
                 if (isset($url[1]) && !empty($url[1])) {
-                    $controllerFile = '../app/controllers/Admin/' . ucfirst($url[1]) . '.php';
+                    // Convert hyphenated URL to PascalCase for controller name
+                    $controllerName = $this->urlToControllerName($url[1]);
+                    $controllerFile = '../app/controllers/Admin/' . $controllerName . '.php';
                     if (file_exists($controllerFile)) {
-                        $this->controller = ucfirst($url[1]);
+                        $this->controller = $controllerName;
                         unset($url[0], $url[1]);
                         require_once $controllerFile;
                     } else {
@@ -50,11 +52,14 @@ class App {
         // Instantiate controller
         $this->controller = new $this->controller;
         
+        // Re-index array after unset operations
+        $url = array_values($url);
+        
         // Check for method
-        if (isset($url[1]) && !empty($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
-                unset($url[1]);
+        if (isset($url[0]) && !empty($url[0])) {
+            if (method_exists($this->controller, $url[0])) {
+                $this->method = $url[0];
+                unset($url[0]);
             }
         }
         
@@ -74,5 +79,14 @@ class App {
             return explode('/', $url);
         }
         return [];
+    }
+    
+    // Convert URL format to Controller name (e.g., "galeri-foto" -> "GaleriFotoController")
+    private function urlToControllerName($url) {
+        // Split by hyphen and capitalize each word
+        $parts = explode('-', $url);
+        $parts = array_map('ucfirst', $parts);
+        $controllerName = implode('', $parts) . 'Controller';
+        return $controllerName;
     }
 }

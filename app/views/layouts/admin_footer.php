@@ -7,6 +7,12 @@
          x-cloak
          class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"></div>
     
+    <!-- Admin JavaScript -->
+    <script>
+        const BASE_URL = '<?= BASE_URL ?>';
+    </script>
+    <script src="<?= BASE_URL ?>/js/admin.js"></script>
+    
     <script>
         // Auto-close flash messages
         setTimeout(() => {
