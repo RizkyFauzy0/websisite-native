@@ -1,0 +1,39 @@
+# Uploads folder (except subdirectory structure)
+public/uploads/**/*
+!public/uploads/.gitkeep
+!public/uploads/sliders/
+!public/uploads/guru/
+!public/uploads/galeri/
+!public/uploads/downloads/
+!public/uploads/logo/
+!public/uploads/sliders/.gitkeep
+!public/uploads/guru/.gitkeep
+!public/uploads/galeri/.gitkeep
+!public/uploads/downloads/.gitkeep
+!public/uploads/logo/.gitkeep
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vendor folders
+vendor/
+node_modules/
+
+# Configuration files with sensitive data
+# config/config.php
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
